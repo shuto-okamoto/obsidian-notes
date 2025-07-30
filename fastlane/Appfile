@@ -1,0 +1,15 @@
+# Appfile - Obsidian Notes
+
+app_identifier("com.obsidian.notes.Obsidian-Notes") # Bundle ID
+apple_id(ENV['FASTLANE_APPLE_ID']) # Apple ID
+
+team_id("M925SB5N54") # Developer Team ID
+
+# App Store Connect用の設定
+itc_team_id("M925SB5N54") # App Store Connect Team ID (通常は同じ)
+
+# 言語設定
+language("ja")
+
+# アプリ名
+app_name("Obsidian Notes")

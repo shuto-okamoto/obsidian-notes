@@ -1,0 +1,50 @@
+# Obsidian Notes App Configuration
+# 生成日: 2025年 7月30日 水曜日 10時10分37秒 JST
+
+app:
+  name: "Obsidian Notes"
+  bundle_id: "com.obsidian.notes.Obsidian-Notes"
+  scheme: "Obsidian Notes"
+  workspace: "project.xcworkspace"
+  project: "Obsidian Notes.xcodeproj"
+  type: "swiftui"
+
+developer:
+  team_id: "M925SB5N54"  # Apple Developer Team ID
+  apple_id: "your-apple-id@example.com"  # Apple ID
+  company_name: "Okamoto Hideto"
+
+urls:
+  website: "https://github.com/okamotohideto/obsidian-notes"
+  privacy_policy: "https://github.com/okamotohideto/obsidian-notes#privacy-policy"
+  support: "https://github.com/okamotohideto/obsidian-notes#support"
+  terms_of_service: "https://obsidian-notes-app.com/terms"
+
+repository:
+  certificates_repo: "https://github.com/okamotohideto/obsidian-notes-certificates"
+
+notifications:
+  slack_webhook: ""  # オプション
+
+app_store:
+  primary_category: "PRODUCTIVITY"
+  secondary_category: "UTILITIES"
+  content_rating: "4+"
+
+version:
+  initial: "1.0.0"
+  build_initial: "1"
+
+# Obsidian Notes専用設定
+obsidian:
+  theme_colors:
+    - "Purple"
+    - "Blue" 
+    - "Green"
+    - "Orange"
+  features:
+    - "Beautiful dark theme"
+    - "Crystal-inspired design"
+    - "Fast note taking"
+    - "Search functionality"
+    - "Multiple themes"

@@ -1,0 +1,27 @@
+# Snapfile Configuration for Obsidian Notes
+
+devices([
+  "iPhone 16 Pro Max",
+  "iPhone 16 Pro",
+  "iPad Pro (12.9-inch) (6th generation)"
+])
+
+languages([
+  "ja"
+])
+
+# メインアプリのスキーム名
+scheme("Obsidian Notes")
+
+clear_previous_screenshots(true)
+override_status_bar(true)
+localize_simulator(true)
+
+# カスタム引数
+launch_arguments([
+  "-FASTLANE_SNAPSHOT 1",
+  "-UITestMode 1"
+])
+
+# 出力ディレクトリ
+output_directory("./fastlane/screenshots")

@@ -1,0 +1,75 @@
+# Fastfile - Obsidian Notes
+# App Store Connect自動デプロイ設定
+
+default_platform(:ios)
+
+platform :ios do
+  desc "🚀 App Store Connect - Beta (TestFlight) デプロイ"
+  lane :beta do
+    # 環境変数確認
+    ensure_env_vars(
+      env_vars: ['FASTLANE_APPLE_ID', 'DEVELOPER_APP_IDENTIFIER']
+    )
+
+    # Xcodeプロジェクトをビルド
+    build_app(
+      scheme: "Obsidian Notes",
+      export_method: "app-store",
+      output_directory: "./build"
+    )
+
+    # TestFlightにアップロード
+    upload_to_testflight(
+      beta_app_feedback_email: ENV['FASTLANE_APPLE_ID'],
+      beta_app_description: "Obsidian Notes - 美しいメモアプリの新しいビルド",
+      demo_account_required: false,
+      notify_external_testers: false,
+      skip_waiting_for_build_processing: true
+    )
+
+    # 成功通知
+    puts "🎉 TestFlightアップロード完了！"
+    puts "📱 App Store Connectで確認してください"
+  end
+
+  desc "🌟 App Store Connect - Release デプロイ"
+  lane :release do
+    # 環境変数確認
+    ensure_env_vars(
+      env_vars: ['FASTLANE_APPLE_ID', 'DEVELOPER_APP_IDENTIFIER']
+    )
+
+    # メタデータをアップロード
+    upload_to_app_store(
+      submit_for_review: false,
+      automatic_release: false,
+      force: true,
+      metadata_path: "./fastlane/metadata",
+      screenshots_path: "./fastlane/screenshots"
+    )
+
+    # 成功通知
+    puts "🎉 App Store Connectにメタデータアップロード完了！"
+    puts "🌟 審査に提出する準備ができました"
+  end
+
+  desc "📱 スクリーンショット生成"
+  lane :screenshots do
+    capture_screenshots(
+      scheme: "Obsidian Notes"
+    )
+  end
+
+  desc "🔍 アプリ情報確認"
+  lane :info do
+    puts "📋 Obsidian Notes アプリ情報"
+    puts "Bundle ID: #{ENV['DEVELOPER_APP_IDENTIFIER']}"
+    puts "Apple ID: #{ENV['FASTLANE_APPLE_ID']}"
+    puts "🚀 準備完了！"
+  end
+
+  # エラーハンドリング
+  error do |lane, exception|
+    puts "❌ エラーが発生しました: #{exception.message}"
+  end
+end
