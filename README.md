@@ -14,7 +14,7 @@ Beautiful Note-Taking App with Dark Theme
 ## Support
 
 For support and questions, please visit:  
-🔗 Support: [GitHub Issues](https://github.com/okamotohideto/obsidian-notes/issues)
+🔗 Support: [GitHub Issues](https://github.com/shuto-okamoto/obsidian-notes/issues)
 
 ## Privacy
 
@@ -27,7 +27,7 @@ Obsidian Notes does not collect any personal data. All notes are stored locally 
 - No analytics or tracking is performed
 
 ### Contact
-For questions about this privacy policy, visit: [Privacy Policy](https://github.com/okamotohideto/obsidian-notes#privacy)
+For questions about this privacy policy, visit: [GitHub Issues](https://github.com/shuto-okamoto/obsidian-notes/issues)
 
 ---
 

@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- App Store gradient background -->
+    <radialGradient id="appBg" cx="0.3" cy="0.2" r="1.2">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#0f0f1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Main crystal gradient -->
+    <linearGradient id="crystalMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
+      <stop offset="35%" style="stop-color:#bc8cff;stop-opacity:0.9" />
+      <stop offset="70%" style="stop-color:#56d364;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ff9500;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <!-- Crystal facet gradients -->
+    <linearGradient id="facet1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.3" />
+    </linearGradient>
+    
+    <linearGradient id="facet2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#bc8cff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.2" />
+    </linearGradient>
+    
+    <linearGradient id="facet3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#56d364;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.2" />
+    </linearGradient>
+    
+    <linearGradient id="facet4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9500;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.2" />
+    </linearGradient>
+    
+    <!-- Inner glow -->
+    <radialGradient id="innerGlow" cx="0.5" cy="0.3" r="0.8">
+      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.4" />
+      <stop offset="50%" style="stop-color:#bc8cff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#58a6ff;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Shadow filter -->
+    <filter id="crystalShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dx="0" dy="8" result="offset"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.4"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+    
+    <!-- Reflection filter -->
+    <filter id="reflection" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+    </filter>
+  </defs>
+  
+  <!-- App Store rounded rectangle background -->
+  <rect width="1024" height="1024" rx="180" ry="180" fill="url(#appBg)" stroke="#2d3748" stroke-width="4"/>
+  
+  <!-- Inner atmospheric glow -->
+  <circle cx="512" cy="512" r="420" fill="url(#innerGlow)"/>
+  
+  <!-- Main crystal structure with shadow -->
+  <g filter="url(#crystalShadow)">
+    <!-- Main crystal body -->
+    <path d="M512 180 L680 340 L620 520 L512 780 L404 520 L344 340 Z" 
+          fill="url(#crystalMain)" 
+          stroke="#58a6ff" 
+          stroke-width="4" 
+          opacity="0.95"/>
+    
+    <!-- Top facets for 3D effect -->
+    <path d="M512 180 L600 300 L512 400 Z" 
+          fill="url(#facet1)"/>
+    <path d="M512 180 L424 300 L512 400 Z" 
+          fill="url(#facet2)"/>
+    
+    <!-- Side facets -->
+    <path d="M424 300 L344 340 L512 400 Z" 
+          fill="url(#facet3)"/>
+    <path d="M600 300 L680 340 L512 400 Z" 
+          fill="url(#facet4)"/>
+    
+    <!-- Bottom facets -->
+    <path d="M404 520 L512 400 L512 780 Z" 
+          fill="url(#facet3)" 
+          opacity="0.6"/>
+    <path d="M620 520 L512 400 L512 780 Z" 
+          fill="url(#facet4)" 
+          opacity="0.6"/>
+    
+    <!-- Central highlight for brilliance -->
+    <ellipse cx="512" cy="380" rx="60" ry="30" 
+             fill="url(#facet1)" 
+             opacity="0.7"
+             filter="url(#reflection)"/>
+    
+    <!-- Sharp highlight line -->
+    <path d="M480 360 L544 360 L520 400 L496 400 Z"
+          fill="#ffffff"
+          opacity="0.8"/>
+  </g>
+  
+  <!-- Subtle sparkle effects -->
+  <g opacity="0.8">
+    <circle cx="400" cy="260" r="6" fill="#58a6ff" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="624" cy="300" r="4" fill="#bc8cff" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="460" cy="640" r="5" fill="#56d364" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="580" cy="660" r="3" fill="#ff9500" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Edge enhancement -->
+  <rect width="1024" height="1024" rx="180" ry="180" 
+        fill="none" 
+        stroke="url(#crystalMain)" 
+        stroke-width="2" 
+        opacity="0.3"/>
+</svg>
